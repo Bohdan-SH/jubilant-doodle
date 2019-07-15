@@ -1,16 +1,22 @@
 import Component from './component.js';
 
 export default class PhonesCatalog extends Component {
-  constructor({ element, phones = [], onPhoneSelected = () => {} }) {
+  constructor({
+    element,
+    phones = []
+    // onPhoneSelected = () => { }
+  }) {
     super({ element });
+    this._callbackMap = {};
     this._phones = phones;
     this._render();
-    this.onPhoneSelected = onPhoneSelected;
+    // this.onPhoneSelected = onPhoneSelected;
 
     this.on('click', '[data-element="details-link"]', event => {
       const phoneEl = event.target.closest('[data-element="phone-element"]');
       const phoID = phoneEl.dataset.phoneId;
-      this.onPhoneSelected(phoID);
+      // this.onPhoneSelected(phoID);
+      this.emit('phone-selected', phoID);
     });
   }
 
