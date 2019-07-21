@@ -1,12 +1,14 @@
 import Component from './component.js';
 
 export default class PhoneViewer extends Component {
-  constructor({ element, onBack }) {
+  constructor({ element }) {
     super({ element });
-    this.onBack = onBack;
 
     this.on('click', '[data-element="back-button"]', () => {
       this.emit('back');
+    });
+    this.on('click', '[data-element="add-to-cart"]', () => {
+      this.emit('add-phone', this._phoneDetails.id);
     });
     this.on('click', '[data-element="small-preview"]', event => {
       const bigPreview = this._element.querySelector(
@@ -27,11 +29,10 @@ export default class PhoneViewer extends Component {
     <img
     data-element="big-preview"
     class="phone" 
-    src="${this._phoneDetails.images[0]}">
-
+    src="${this._phoneDetails.images[0]}"
+    >
     <button data-element="back-button">Back</button>
-    <button>Add to basket</button>
-
+    <button data-element="add-to-cart">Add to basket</button>
 
     <h1>${this._phoneDetails.name}</h1>
 
@@ -42,9 +43,10 @@ export default class PhoneViewer extends Component {
         .map(
           imageUrl => `
       <li>
-        <img
+        <img 
+        src="${imageUrl}" 
         data-element="small-preview"
-        src="${imageUrl}">
+        >
       </li>
       `
         )

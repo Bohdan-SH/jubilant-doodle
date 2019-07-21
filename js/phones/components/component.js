@@ -31,14 +31,6 @@ export default class Component {
     this._callbackMap[eventName].push(callback);
   }
 
-  hide() {
-    this._element.hidden = true;
-  }
-
-  show() {
-    this._element.hidden = false;
-  }
-
   unsubscribe(eventName, callbackToRemove) {
     const callbacks = this._callbackMap[eventName];
     if (callback) {
@@ -46,5 +38,13 @@ export default class Component {
         cb => cb !== callbackToRemove
       );
     }
+  }
+
+  hide() {
+    this._element.hidden = true;
+  }
+
+  show() {
+    this._element.hidden = false;
   }
 }
