@@ -26,31 +26,32 @@ export default class PhoneViewer extends Component {
 
   _render() {
     this._element.innerHTML = `
-    <img
-    data-element="big-preview"
-    class="phone" 
-    src="${this._phoneDetails.images[0]}"
-    >
-    <button data-element="back-button">Back</button>
-    <button data-element="add-to-cart">Add to basket</button>
-
-    <h1>${this._phoneDetails.name}</h1>
-
-    <p>${this._phoneDetails.description}</p>
-
-    <ul class="phone-thumbs">
-      ${this._phoneDetails.images
-        .map(
-          imageUrl => `
-      <li>
-        <img 
-        src="${imageUrl}" 
-        data-element="small-preview"
+        <img
+        data-element="big-preview"
+        class="phone" 
+        src="${this._phoneDetails.images[0]}"
         >
-      </li>
-      `
-        )
-        .join('')}
-    </ul>`;
+        <button data-element="back-button">Back</button>
+        <button data-element="add-to-cart">Add to basket</button>
+    
+        <h1>${this._phoneDetails.name}</h1>
+    
+        <p>Motorola XOOM with Wi-Fi has a super-powerful dual-core processor and Android™ 3.0 (Honeycomb) — the Android platform designed specifically for tablets. With its 10.1-inch HD widescreen display, you’ll enjoy HD video in a thin, light, powerful and upgradeable tablet.</p>
+    
+        <ul class="phone-thumbs">
+          ${this._phoneDetails.images
+            .map(
+              imageUrl => `
+          <li>
+            <img 
+            src="${imageUrl}" 
+            data-element="small-preview"
+            >
+          </li>
+          `
+            )
+            .join('')}
+        </ul>
+        `;
   }
 }

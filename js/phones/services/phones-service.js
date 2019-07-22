@@ -231,8 +231,12 @@ const phoneByIdDetails = {
 };
 
 const PhonesService = {
-  getAll() {
-    return phonesFromServer;
+  getAll({ query = '', order = '' } = {}) {
+    const filteredPhones = phonesFromServer.filter(phone => {
+      return phone.name.toLowerCase().includes(query.toLowerCase());
+    });
+    const sortedPhones = filteredPhones;
+    return sortedPhones;
   },
   getById(id) {
     return phoneByIdDetails;
