@@ -34,18 +34,17 @@ export default class ShoppingCart extends Component {
 
   _render() {
     this._element.innerHTML = `
-            <p>Shopping Cart</p>
-            <ul>
-                ${Object.entries(this._items)
-                  .map(
-                    ([name, quantity]) => `
-                        <li data-phone-id="${name}">${name} - ${quantity} 
-                            <button data-element="remove">X</button>
-                        </li>
-                    `
-                  )
-                  .join('')}
-            </ul>
-        `;
+    <p>Shopping Cart</p>
+    <ul>
+        ${Object.entries(this._items)
+          .map(
+            ([name, quantity]) => `
+                <li data-phone-id="${name}">${name} - ${quantity} 
+                    <button data-element="remove">X</button>
+                </li>
+            `
+          )
+          .join('')}
+    </ul>`;
   }
 }

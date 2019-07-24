@@ -36,7 +36,7 @@ export default class PhoneViewer extends Component {
     
         <h1>${this._phoneDetails.name}</h1>
     
-        <p>Motorola XOOM with Wi-Fi has a super-powerful dual-core processor and Android™ 3.0 (Honeycomb) — the Android platform designed specifically for tablets. With its 10.1-inch HD widescreen display, you’ll enjoy HD video in a thin, light, powerful and upgradeable tablet.</p>
+        <p>${this._phoneDetails.description}</p>
     
         <ul class="phone-thumbs">
           ${this._phoneDetails.images

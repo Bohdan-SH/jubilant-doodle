@@ -33,7 +33,7 @@ export default class Component {
 
   unsubscribe(eventName, callbackToRemove) {
     const callbacks = this._callbackMap[eventName];
-    if (callback) {
+    if (callbacks) {
       this._callbackMap[eventName] = callbacks.filter(
         cb => cb !== callbackToRemove
       );
